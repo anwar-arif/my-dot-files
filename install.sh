@@ -10,22 +10,22 @@ BLINK="\e[0;40;5m"
 
 prompt_install() {
     if [ -x "$(command -v apt)" ]; then
-        sudo apt install $1
+        sudo apt install $1 -y
     elif [ -x "$(command -v brew)" ]; then 
-        brew install $1
+        brew install $1 -y
     elif [ -x "$(command -v apt-get)" ]; then
-        sudo apt-get install $1
+        sudo apt-get install $1 -y
     else 
         echo "I don't know your package manager"
     fi
 }
 
 install() {
-    echo "installing $1..."
+    printf "installing ${GREEN}$1$NORMAL...\n"
     if ! [ -x "$(command -v $1)" ]; then
         prompt_install $1
     else
-        echo "${GREEN}git is already installed $NORMAL"
+        printf "${GREEN}$1 is already installed $NORMAL\n"
     fi
 }
 
@@ -43,7 +43,10 @@ update() {
 
 main() {
     update
-    install git
+    packages=("git" "vim" "tmux" "zsh")
+    for pkg in ${packages[@]}; do
+        install $pkg
+    done
 }
 
 main $@
