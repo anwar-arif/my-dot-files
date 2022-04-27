@@ -1,36 +1,31 @@
 #!/bin/sh
 
-install_zsh() {
-    echo "installing zsh..."
-    if ! [ -x "$(command -v zsh)" ]; then
-        sudo apt install zsh
-    else 
-        echo "zsh is installed already"
+isInstalled() {
+    local pkg=$1
+    local result="false"
+    if [ -x "$(command -v $pkg)" ]; then
+        result="true"
+        else 
+            result="false"
     fi
+    echo $result
 }
 
-install_vim() {
-    echo "installing vim..."
-    if ! [ -x "$(command -v vim)" ]; then
-        sudo apt install vim
-    else 
-        echo "vim is installed already"
-    fi
-}
+configure_zsh() {
+    local pkg=$1
+    local installed=$(isInstalled $pkg)
 
-install_tmux() {
-    echo "installing tmux..."
-    if ! [ -x "$(command -v tmux)" ]; then
-        sudo apt install tmux
+    if [ "$installed" == "false" ] ; then
+        printf "please install $pkg before configuring\n"
+        exit 1
     else
-        echo "tmux is installed already"
+        
     fi
+
 }
 
 main() {
-    install_zsh
-    install_vim
-    install_tmux
+    configure_zsh
 }   
 
 main $@
