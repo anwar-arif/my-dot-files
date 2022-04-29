@@ -62,8 +62,18 @@ setup_tmux_plugin() {
     printf "${GREEN}Tmux plugin setup complete${NORMAL}\n"
 }
 
+setup_vim_plugin() {
+	printf "${PURPLE}Installing vim plugins${NORMAL}\n"
+	if ! test -d "$HOME/.vim/bundle/Vundle.vim"; then
+		git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+	fi
+	vim +PluginInstall +qall
+	printf "${GREEN}Vim plugin setup complete${NORMAL}\n"
+}
+
 main() {
     clone_dotfile_repo
+	setup_vim_plugin
     setup_zsh_plugin
     setup_tmux_plugin
 }   

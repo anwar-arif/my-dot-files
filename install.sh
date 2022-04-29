@@ -43,7 +43,7 @@ update() {
 
 main() {
     update
-    packages=("git" "vim" "tmux" "zsh")
+    packages=("git" "git-gui" "zsh" "vim" "tmux" "brave-browser")
     for pkg in ${packages[@]}; do
         install $pkg
     done

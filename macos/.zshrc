@@ -109,10 +109,11 @@ source $ZSH/oh-my-zsh.sh
 # For a full list of active aliases, run `alias`.
 
 # Workstation
-alias ws="/Users/anwar/workstation"
-alias projects="/Users/anwar/projects"
-alias acm="/Users/anwar/acm"
-alias books="/Users/anwar/books"
+alias ws="$HOME/workstation"
+alias projects="$HOME/projects"
+alias acm="$HOME/acm"
+alias books="$HOME/books"
+alias dotfile="$HOME/my-dot-files"
 
 # Git alias
 alias gb="git branch"
