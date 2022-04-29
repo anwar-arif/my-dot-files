@@ -1,18 +1,12 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
+# Homebrew bins
+export PATH="/opt/homebrew/bin:$PATH"
+
 # Java Paths
 export PATH="/usr/local/opt/openjdk@8/bin:$PATH"
 export PATH="/usr/local/opt/openjdk@11/bin:$PATH"
-export PATH="$HOME/.jenv/bin:$PATH"
-eval "$(jenv init -)"
-
-jdk() {
-      version=$1
-      unset JAVA_HOME;
-      export JAVA_HOME=$(/usr/libexec/java_home -v"$version");
-      java -version
-}
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
