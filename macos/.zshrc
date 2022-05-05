@@ -113,7 +113,7 @@ alias ws="$HOME/workstation"
 alias projects="$HOME/projects"
 alias acm="$HOME/acm"
 alias books="$HOME/books"
-alias dotfiles="$HOME/my-dot-files"
+alias dotfile="$HOME/my-dot-files"
 alias home="~"
 
 # Git alias
