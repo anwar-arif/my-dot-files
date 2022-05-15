@@ -27,6 +27,7 @@ set wrap                " wrap lines
 set encoding=utf-8      " set encoding to UTF-8 (default was "latin1")
 set mouse=a             " enable mouse support (might not work well on Mac OS X)
 set showmatch           " highlight matching parentheses / brackets [{()}]
+set backspace=indent,eol,start
 "set visualbell          " blink cursor on error, instead of beeping
 set laststatus=2
 """" Vim Appearance
