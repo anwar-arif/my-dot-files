@@ -10,9 +10,10 @@ export ZSH="$HOME/.oh-my-zsh"
 # Java Paths
 export PATH="/usr/local/opt/openjdk@8/bin:$PATH"
 export PATH="/opt/homebrew/opt/openjdk@11/bin:$PATH"
+# export _JAVA_OPTIONS=-Djna.boot.library.path="$HOME/jnalib"
 
-
-
+# Node path
+# export PATH="/opt/homebrew/local/node/bin:$PATH"
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -88,8 +89,10 @@ export ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git
+plugins=(
+    git
 	zsh-autosuggestions
+    zsh-syntax-highlighting
 )
 
 source $ZSH/oh-my-zsh.sh
