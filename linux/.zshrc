@@ -11,6 +11,9 @@ export GOROOT="/usr/local/go"
 export PATH=$PATH:$GOPATH/bin
 export PATH=$PATH:/usr/local/go/bin
 
+# Java Home
+export JAVA_HOME="/usr/lib/jvm/java-11-openjdk-amd64"
+
 # Auto-suggestion color in tmux
 export TERM=xterm-256color
 
@@ -115,11 +118,11 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # Workstation alias
-alias ws="cd /media/workstation"
-alias ws-go="cd /home/anwar/go/src"
-alias acm="cd /media/workstation/development/acm-code"
-alias projects="cd /media/workstation/development/projects"
-alias learning="cd /media/workstation/development/learning"
+alias ws="$HOME/workstation"
+alias ws-go="$HOME/anwar/go/src"
+alias acm="$HOME/workstation/development/acm-code"
+alias projects="$HOME/workstation/development/projects"
+alias learning="$HOME/workstation/development/learning"
 
 # Docker alias
 alias dim="docker images"
