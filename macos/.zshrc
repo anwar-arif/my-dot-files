@@ -91,8 +91,13 @@ export ZSH_THEME="robbyrussell"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
     git
+    kubectl
+    history
+    docker-compose
 	zsh-autosuggestions
     zsh-syntax-highlighting
+    web-search
+    copyfile
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -136,6 +141,10 @@ alias glo="git log --oneline"
 alias gp="git push"
 alias gcm="git commit -m"
 alias gaa="git add --all"
+alias gcd="git checkout develop"
+
+# Code formating
+alias sfmt="sbt scalafmtAll"
 
 # Kubectl alias
 alias kc="kubectl"
