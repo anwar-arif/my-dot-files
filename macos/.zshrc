@@ -12,7 +12,9 @@ export PATH="/usr/local/opt/openjdk@8/bin:$PATH"
 export PATH="/opt/homebrew/opt/openjdk@11/bin:$PATH"
 
 
-
+# Go Paths
+export GOPATH="$HOME/go"
+export GOROOT="/usr/local/bin/go"
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -144,6 +146,7 @@ alias dpsa="docker ps -a"
 
 # Intellij Idea
 alias idea='open -a "`ls -dt /Applications/IntelliJ\ IDEA*|head -1`"'
+alias goland='open -a "`ls -dt /Applications/GoLand*|head -1`"'
 
 # Calculator with math support
 alias calc="bc -l"
