@@ -14,7 +14,9 @@ export PATH="/opt/homebrew/opt/openjdk@11/bin:$PATH"
 
 # Go Paths
 export GOPATH="$HOME/go"
-export GOROOT="/usr/local/bin/go"
+export GOROOT="/usr/local/go"
+export PATH="$GOROOT:$PATH"
+export PATH="$GOPATH/bin:$PATH"
 
 # Node path
 # export PATH="/opt/homebrew/local/node/bin:$PATH"
