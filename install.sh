@@ -54,6 +54,9 @@ install_brew_pkg() {
     local packages=(
         "docker"
         "ca-certificates"
+        "git-gui"
+        "tmux"
+        "zsh"
     )
     for pkg in ${packages[@]}; do
         if brew list $pkg &>/dev/null; then
