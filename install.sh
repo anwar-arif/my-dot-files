@@ -75,6 +75,7 @@ install_cask_pkg() {
         "datagrip"
         "postman"
         "google-chrome"
+        "nordvpn"
         )
     for pkg in ${packages[@]}; do
         if brew list $pkg &>/dev/null; then
