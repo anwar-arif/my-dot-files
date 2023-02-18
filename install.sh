@@ -50,16 +50,51 @@ install_snap_pkg() {
     done
 }
 
-install_cask_pkg() {
-    local packages=("notion" "visual-studio-code" "intellij-idea" "datagrip")
+install_brew_pkg() {
+    local packages=(
+        "docker"
+        "ca-certificates"
+    )
     for pkg in ${packages[@]}; do
-        printf "installing ${GREEN}$pkg$NORMAL\n"
-        brew install --cask $pkg
+        if brew list $pkg &>/dev/null; then
+            echo "$pkg is already installed"
+        else
+            printf "installing ${GREEN}$pkg$NORMAL\n"
+            brew install $pkg
+        fi
     done
+}
+
+install_cask_pkg() {
+    local packages=(
+        "brave-browser" 
+        "notion" 
+        "visual-studio-code" 
+        "intellij-idea"
+        "goland" 
+        "datagrip"
+        "postman"
+        "google-chrome"
+        )
+    for pkg in ${packages[@]}; do
+        if brew list $pkg &>/dev/null; then
+            echo "$pkg is already installed"
+        else
+            printf "installing ${GREEN}$pkg$NORMAL\n"
+            brew install --cask $pkg
+        fi
+    done
+}
+
+install_brew() {
+    echo "installing home brew"
+    # /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 }
 
 os_specific_pkg_install() {
     if [[ $OSTYPE == 'darwin'* ]]; then    
+        install_brew
+        install_brew_pkg
         install_cask_pkg
     else
         install_snap_pkg
@@ -72,7 +107,6 @@ main() {
     for pkg in ${packages[@]}; do
         install $pkg
     done
-
     os_specific_pkg_install
 }
 
