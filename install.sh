@@ -107,10 +107,6 @@ os_specific_pkg_install() {
 
 main() {
     update
-    local packages=("git" "git-gui" "zsh" "vim" "tmux")
-    for pkg in ${packages[@]}; do
-        install $pkg
-    done
     os_specific_pkg_install
 }
 
