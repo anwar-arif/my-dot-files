@@ -2,13 +2,15 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/anwar/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 # Go path
-export GOPATH="/home/anwar/go"
+export GOPATH="~/go"
 export GOROOT="/usr/local/go"
+export GOBIN="$GOPATH/bin"
+export GO111MODULE=on
 
-export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:$GOBIN
 export PATH=$PATH:/usr/local/go/bin
 
 # Java Home
@@ -86,7 +88,10 @@ ZSH_THEME="robbyrussell"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
 	git
+	history
+	docker-compose
 	zsh-autosuggestions
+	zsh-syntax-highlighting
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -119,7 +124,7 @@ source $ZSH/oh-my-zsh.sh
 
 # Workstation alias
 alias ws="$HOME/workstation"
-alias ws-go="$HOME/anwar/go/src"
+alias ws-go="$HOME/go/src"
 alias acm="$HOME/workstation/development/acm-code"
 alias projects="$HOME/workstation/development/projects"
 alias learning="$HOME/workstation/development/learning"

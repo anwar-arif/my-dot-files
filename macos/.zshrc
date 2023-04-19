@@ -3,6 +3,8 @@
 
 # Homebrew bins
 export PATH="/opt/homebrew/bin:$PATH"
+export PATH="/opt/homebrew/Cellar/kafka/3.4.0/bin:$PATH"
+export PATH="/opt/homebrwe/Cellar/zookeeper/3.8.1/bin:$PATH"
 
 # Path to oh-my-zsh installation
 export ZSH="$HOME/.oh-my-zsh"
@@ -14,9 +16,11 @@ export PATH="/opt/homebrew/opt/openjdk@11/bin:$PATH"
 
 # Go Paths
 export GOPATH="$HOME/go"
+export GOBIN="$GOPATH/bin"
 export GOROOT="/usr/local/go"
 export PATH="$GOROOT:$PATH"
 export PATH="$GOPATH/bin:$PATH"
+export GO111MODULE=on
 
 # Node path
 # export PATH="/opt/homebrew/local/node/bin:$PATH"

@@ -42,21 +42,53 @@ update() {
     fi
 }
 
-install_snap_pkg() {
-    local packages=("notion-snap" "code" "intellij-idea-ultimate --classic")
+# linux based pkg install start
+install_apt_pkg() {
+    local packages=("tmux" "vim" "zsh" "git-gui")
     for pkg in ${packages[@]}; do
-        printf "installing ${GREEN}$pkg$NORMAL\n"
-        sudo apt install $pkg
+        printf "installing ${GREEN}pkg$NORMAL\n"
+        sudo apt install $pkg -y
     done
 }
 
+install_snap_pkg() {
+    local packages=(
+        "notion-snap"
+        "postman"
+    )
+    local classicPkgs=(
+        "code"
+        "intellij-idea-ultimate"
+    )
+    
+    for pkg in ${packages[@]}; do
+        if snap list $pkg $>/dev/null; then
+            printf "$pkg alredy installed\n"
+        else
+            printf "installing ${GREEN}$pkg$NORMAL\n"
+            sudo snap install $pkg
+        fi
+    done
+
+    for pkg in ${classicPkgs[@]}; do
+        if snap list $pkg $>/dev/null; then
+            printf "$pkg alredy installed\n"
+        else
+            printf "installing ${GREEN}$pkg$NORMAL\n"
+            sudo snap install $pkg --classic
+        fi
+    done
+}
+# linux based pkg install end
+
+# macos install start
 install_brew_pkg() {
     local packages=(
         "docker"
         "ca-certificates"
         "git-gui"
         "tmux"
-        "zsh"
+        "zsh" 
     )
     for pkg in ${packages[@]}; do
         if brew list $pkg &>/dev/null; then
@@ -79,7 +111,7 @@ install_cask_pkg() {
         "postman"
         "google-chrome"
         "nordvpn"
-        )
+    )
     for pkg in ${packages[@]}; do
         if brew list $pkg &>/dev/null; then
             echo "$pkg is already installed"
@@ -101,6 +133,7 @@ os_specific_pkg_install() {
         install_brew_pkg
         install_cask_pkg
     else
+        install_apt_pkg
         install_snap_pkg
     fi
 }
