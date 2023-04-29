@@ -103,6 +103,7 @@ plugins=(
     git
     kubectl
     history
+    docker
     docker-compose
 	zsh-autosuggestions
     zsh-syntax-highlighting
@@ -164,7 +165,6 @@ alias dk="docker"
 alias dim="docker images"
 alias dps="docker ps"
 alias dpsa="docker ps -a"
-
 # Intellij Idea
 alias idea='open -a "`ls -dt /Applications/IntelliJ\ IDEA*|head -1`"'
 alias goland='open -a "`ls -dt /Applications/GoLand*|head -1`"'
