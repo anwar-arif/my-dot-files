@@ -1,8 +1,8 @@
-- create folder 'bits' inside '/usr/local/include'
-- add a file 'stdc++.h' in 'bits' folder
-- copy following contents to 'stdc++.h' file
+// - create folder 'bits' inside '/usr/local/include'
+// - add a file 'stdc++.h' in 'bits' folder
+// - copy following contents to 'stdc++.h' file
 
--------------------------------------------------------------------------------------------------------------------
+// -------------------------------------------------------------------------------------------------------------------
 // C++ includes used for precompiling -*- C++ -*-
 
 // Copyright (C) 2003-2013 Free Software Foundation, Inc.
