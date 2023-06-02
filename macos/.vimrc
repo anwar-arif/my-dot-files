@@ -27,8 +27,8 @@ set wrap                " wrap lines
 set encoding=utf-8      " set encoding to UTF-8 (default was "latin1")
 set mouse=a             " enable mouse support (might not work well on Mac OS X)
 set showmatch           " highlight matching parentheses / brackets [{()}]
-set backspace=indent,eol,start
-"set visualbell          " blink cursor on error, instead of beeping
+set backspace=indent,eol,start " set backspace to delete chars
+set visualbell          " blink cursor on error, instead of beeping
 set laststatus=2
 """" Vim Appearance
 
@@ -57,9 +57,12 @@ syntax enable                               " use filetype-based syntax highligh
 set tabstop=4           " number of spaces per <TAB>
 set expandtab           " convert <TAB> key-presses to spaces
 set shiftwidth=4        " set a <TAB> key-press equal to 4 spaces
+" set cursorline          " set coursor line underneath the cursor horizontally.
+" set cursorcolumn        " Highlight cursor line underneath the cursor vertically.
 
 set autoindent          " copy indent from current line when starting a new line
 set smartindent         " even better autoindent (e.g. add indent after '{')
+set history=1000        " Set the commands to save in history default number is 20.
 
 """" Search Settings
 

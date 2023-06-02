@@ -88,7 +88,17 @@ install_brew_pkg() {
         "ca-certificates"
         "git-gui"
         "tmux"
-        "zsh" 
+        "zsh"
+        "openjdk@17"
+        "scala@2.13"
+        "sbt"
+        "redis"
+        "kafka"
+        "mysql"
+        "mongodb-community@6.0"
+        "kubectl"
+        "helm"
+        "reattach-to-user-namespace"
     )
     for pkg in ${packages[@]}; do
         if brew list $pkg &>/dev/null; then
@@ -105,12 +115,8 @@ install_cask_pkg() {
         "brave-browser" 
         "notion" 
         "visual-studio-code" 
-        "intellij-idea"
-        "goland" 
-        "datagrip"
         "postman"
         "google-chrome"
-        "nordvpn"
     )
     for pkg in ${packages[@]}; do
         if brew list $pkg &>/dev/null; then
@@ -123,7 +129,12 @@ install_cask_pkg() {
 }
 
 install_brew() {
-    echo "installing home brew"
+    if [ -x "$(command -v brew)" ]; then
+        echo "brew is already installed"
+    else 
+        printf "installing ${GREEN} brew\n"
+        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    fi
     # /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 }
 
