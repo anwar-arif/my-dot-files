@@ -99,6 +99,8 @@ install_brew_pkg() {
         "kubectl"
         "helm"
         "reattach-to-user-namespace"
+        "coreutils"
+        "fish"
     )
     for pkg in ${packages[@]}; do
         if brew list $pkg &>/dev/null; then

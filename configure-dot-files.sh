@@ -71,11 +71,19 @@ setup_vim_plugin() {
 	printf "${GREEN}Vim plugin setup complete${NORMAL}\n"
 }
 
+setup_fish() {
+	printf "${PURPLE}Installing fish plugins${NORMAL}\n"
+	git clone https://github.com/anwar-arif/.config.git ~
+	git clone https://github.com/oh-my-fish/oh-my-fish ~
+	printf "${GREEN}Fish setup complete${NORMAL}\n"
+}
+
 main() {
     clone_dotfile_repo
 	setup_vim_plugin
     setup_zsh_plugin
     setup_tmux_plugin
-}   
+	setup_fish
+}
 
 main $@
