@@ -84,23 +84,28 @@ install_snap_pkg() {
 # macos install start
 install_brew_pkg() {
     local packages=(
-        "docker"
         "ca-certificates"
-        "git-gui"
-        "tmux"
-        "zsh"
-        "openjdk@17"
-        "scala@2.13"
-        "sbt"
-        "redis"
-        "kafka"
-        "mysql"
-        "mongodb-community@6.0"
-        "kubectl"
-        "helm"
-        "reattach-to-user-namespace"
         "coreutils"
+        "docker"
         "fish"
+        "git-gui"
+        "helm"
+        "kafka"
+        "kind"
+        "kubectl"
+        "mongodb-community@6.0"
+        "mysql"
+        "openjdk@17"
+        "reattach-to-user-namespace"
+        "redis"
+        "sbt"
+        "scala@2.13"
+        "terraform"
+        "tldr"
+        "tmux"
+        "tree"
+        "zsh"
+        "zsh-syntax-highlighting"
     )
     for pkg in ${packages[@]}; do
         if brew list $pkg &>/dev/null; then
@@ -114,11 +119,19 @@ install_brew_pkg() {
 
 install_cask_pkg() {
     local packages=(
-        "brave-browser" 
-        "notion" 
-        "visual-studio-code" 
-        "postman"
+        "brave-browser"
+        "datagrip"
+        "devtoys"
+        "goland"
         "google-chrome"
+        "insomnia"
+        "intellij-idea"
+        "nordpass"
+        "nordvpn"
+        "notion"
+        "postman"
+        "visual-studio-code"
+        "vlc"
     )
     for pkg in ${packages[@]}; do
         if brew list $pkg &>/dev/null; then
