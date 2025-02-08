@@ -60,6 +60,14 @@ setup_tmux_plugin() {
 		git clone https://github.com/tmux-plugins/tmux-yank $HOME/.tmux/plugins/tmux-yank
 	fi
     printf "${GREEN}Tmux plugin setup complete${NORMAL}\n"
+
+	printf "${GREEN}Sourcing tmux${NORMAL}\n"
+	if [[ $OSTYPE == 'darwin'* ]]; then
+        tmux source ./macos/.tmux.conf
+    else
+        tmux source ./linux/.tmux.conf
+    fi
+	printf "${GREEN}Sourcing tmux complete${NORMAL}\n"
 }
 
 setup_vim_plugin() {
