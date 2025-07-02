@@ -87,10 +87,10 @@ setup_fish() {
 }
 
 main() {
-    clone_dotfile_repo
+  clone_dotfile_repo
 	setup_vim_plugin
-    setup_zsh_plugin
-    setup_tmux_plugin
+  setup_zsh_plugin
+  setup_tmux_plugin
 	setup_fish
 }
 

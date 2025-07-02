@@ -89,6 +89,7 @@ install_brew_pkg() {
         "docker"
         "fish"
         "git-gui"
+        "gh"
         "helm"
         "kafka"
         "kind"
@@ -132,6 +133,7 @@ install_cask_pkg() {
         "postman"
         "visual-studio-code"
         "vlc"
+        "clipy"
     )
     for pkg in ${packages[@]}; do
         if brew list $pkg &>/dev/null; then
