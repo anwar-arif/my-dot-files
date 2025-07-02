@@ -100,11 +100,7 @@ ENABLE_CORRECTION="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-    git
-    kubectl
     history
-    docker
-    docker-compose
 	zsh-autosuggestions
     zsh-syntax-highlighting
     web-search
@@ -134,48 +130,7 @@ source $ZSH/oh-my-zsh.sh
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
-
-# Workstation
-alias ws="$HOME/workstation"
-alias projects="$HOME/projects"
-alias acm="$HOME/acm"
-alias books="$HOME/books"
-alias dotfile="$HOME/my-dot-files"
-alias home="~"
-
-# Git alias
-alias gb="git branch"
-alias gg="git gui"
-alias gd="git diff"
-alias gst="git status"
-alias glo="git log --oneline"
-alias gp="git push"
-alias gcm="git commit -m"
-alias gaa="git add --all"
-alias gcd="git checkout develop"
-
-# Code formating
-alias sfmt="sbt scalafmtAll"
-
-# Kubectl alias
-alias kc="kubectl"
-
-# Docker alias
-alias dk="docker"
-alias dim="docker images"
-alias dps="docker ps"
-alias dpsa="docker ps -a"
-# Intellij Idea
-alias idea='open -a "`ls -dt /Applications/IntelliJ\ IDEA*|head -1`"'
-alias goland='open -a "`ls -dt /Applications/GoLand*|head -1`"'
-
-# Calculator with math support
-alias calc="bc -l"
-
-# JSON pretty
-alias pretty="python3 -m json.tool"
-
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
+if [ -f ./.aliases ]; then
+    echo "found aliases file"
+    source ./.aliases
+fi
