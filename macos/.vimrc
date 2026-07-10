@@ -52,6 +52,9 @@ let g:lightline = {
 
 syntax enable                               " use filetype-based syntax highlighting, ftplugins, and indentation
 
+""" copy-paste to system clipboard
+set clipboard=unnamedplus
+
 """" Tab Settings
 
 set tabstop=4           " number of spaces per <TAB>

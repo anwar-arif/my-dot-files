@@ -81,30 +81,58 @@ install_snap_pkg() {
 }
 # linux based pkg install end
 
+
 # macos install start
+
+brew_tap() {
+    local tap_list=(
+        "atlassian/homebrew-acli"
+        "mongodb/brew"
+        "hashicorp/tap"
+    )
+}
+
 install_brew_pkg() {
     local packages=(
+        "acli"
+        "awscli"
         "ca-certificates"
         "coreutils"
+        "cruft"
+        "derailed/k9s/k9s"
         "docker"
         "fish"
+        "fzf"
         "git-gui"
         "gh"
+        "glab"
+        "go@1.26"
+        "hashicorp/tap/vault"
         "helm"
+        "jq"
         "kafka"
         "kind"
         "kubectl"
-        "mongodb-community@6.0"
-        "mysql"
+        "mongodb-community@8.0"
+        "mysql@8.0"
         "openjdk@17"
+        "postgresql@18"
+        "python@3.11"
         "reattach-to-user-namespace"
         "redis"
         "sbt"
         "scala@2.13"
         "terraform"
+        "telnet"
+        "tfenv"
         "tldr"
         "tmux"
         "tree"
+        "uv"
+        "unzip"
+        "vault"
+        "wget"
+        "yq"
         "zsh"
         "zsh-syntax-highlighting"
     )
@@ -125,6 +153,7 @@ install_cask_pkg() {
         "devtoys"
         "goland"
         "google-chrome"
+        "gcloud-cli"
         "insomnia"
         "intellij-idea"
         "nordpass"
@@ -158,6 +187,7 @@ install_brew() {
 os_specific_pkg_install() {
     if [[ $OSTYPE == 'darwin'* ]]; then    
         install_brew
+        brew_tap
         install_brew_pkg
         install_cask_pkg
     else

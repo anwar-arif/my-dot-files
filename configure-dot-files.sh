@@ -10,13 +10,14 @@ BLINK="\e[0;40;5m"
 DOT_FOLDER="$HOME/my-dot-files"
 
 clone_dotfile_repo() {
-    printf "${PURPLE}Clonning dotfiles repo${NORMAL}\n"
+    printf "${PURPLE}Cloning dotfiles repo${NORMAL}\n"
     if ! test -d $DOT_FOLDER; then
         git clone https://github.com/anwar-arif/my-dot-files.git $DOT_FOLDER
+        printf "${GREEN}Cloned dotfiles repo${NORMAL}\n"
     else
+        printf "${YELLOW}Repo already exists. Doing a git pull...${NORMAL}\n"
         git -C $DOT_FOLDER pull
     fi
-    printf "${GREEN}Clonned dotfiles repo${NORMAL}\n"
 }
 
 setup_zsh_plugin() {
@@ -39,29 +40,32 @@ setup_zsh_plugin() {
 	else
 		git -C ""$HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions"" pull
 	fi
-	printf "${GREEN}Zsh plugin setup complete${NORMAL}\n"
+	printf "${GREEN}zsh plugin setup complete${NORMAL}\n"
 }
 
 setup_tmux_plugin() {
     printf "${PURPLE}Installing tmux plugins${NORMAL}\n"
     # Checking Tmux Plugin Manager
 	if ! test -d "$HOME/.tmux/plugins/tpm"; then
-		printf "${YELLOW}WARNING: \"Tmux Plugin Manager\" not found${NORMAL}\n"
+		printf "${YELLOW}Cloning \"Tmux Plugin Manager\"...${NORMAL}\n"
 		git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
+		printf "${GREEN}done...${NORMAL}\n"
 	fi
     # Checking tmux-sensible
 	if ! test -d "$HOME/.tmux/plugins/tmux-sensible"; then
-		printf "${YELLOW}WARNING: \"tmux-sensible\" not found${NORMAL}\n"
+		printf "${YELLOW}Cloning \"tmux-sensible\"...${NORMAL}\n"
 		git clone https://github.com/tmux-plugins/tmux-sensible $HOME/.tmux/plugins/tmux-sensible
+		printf "${GREEN}done...${NORMAL}\n"
 	fi
     # Checking tmux-yank
 	if ! test -d "$HOME/.tmux/plugins/tmux-yank"; then
-		printf "${YELLOW}WARNING: \"tmux-yank\" not found${NORMAL}\n"
+		printf "${YELLOW}Cloning \"tmux-yank\"${NORMAL}\n"
 		git clone https://github.com/tmux-plugins/tmux-yank $HOME/.tmux/plugins/tmux-yank
+		printf "${GREEN}done...${NORMAL}\n"
 	fi
     printf "${GREEN}Tmux plugin setup complete${NORMAL}\n"
 
-	printf "${GREEN}Sourcing tmux${NORMAL}\n"
+	printf "${GREEN}Sourcing tmux...${NORMAL}\n"
 	if [[ $OSTYPE == 'darwin'* ]]; then
         tmux source ./macos/.tmux.conf
     else
@@ -87,10 +91,10 @@ setup_fish() {
 }
 
 main() {
-  clone_dotfile_repo
+  	clone_dotfile_repo
 	setup_vim_plugin
-  setup_zsh_plugin
-  setup_tmux_plugin
+	setup_zsh_plugin
+	setup_tmux_plugin
 	setup_fish
 }
 
