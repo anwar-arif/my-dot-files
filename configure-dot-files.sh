@@ -18,6 +18,18 @@ clone_dotfile_repo() {
         printf "${YELLOW}Repo already exists. Doing a git pull...${NORMAL}\n"
         git -C $DOT_FOLDER pull
     fi
+
+	# set up dot files to `source` in home directory
+	if [[ $OSTYPE == 'darwin'* ]]; then
+        echo "source ~/my-dot-files/macos/.zshrc" >> ~/.zshrc
+		echo "source ~/my-dot-files/macos/.vimrc" >> ~/.vimrc
+		echo "source ~/my-dot-files/macos/.tmux.conf" >> ~/.tmux.conf
+    else
+        echo "source ~/my-dot-files/linux/.zshrc" >> ~/.zshrc
+		echo "source ~/my-dot-files/linux/.vimrc" >> ~/.vimrc
+		echo "source ~/my-dot-files/linux/.tmux.conf" >> ~/.tmux.conf
+    fi
+
 }
 
 setup_zsh_plugin() {
@@ -40,6 +52,7 @@ setup_zsh_plugin() {
 	else
 		git -C ""$HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions"" pull
 	fi
+	source ~/.zshrc
 	printf "${GREEN}zsh plugin setup complete${NORMAL}\n"
 }
 
@@ -66,11 +79,7 @@ setup_tmux_plugin() {
     printf "${GREEN}Tmux plugin setup complete${NORMAL}\n"
 
 	printf "${GREEN}Sourcing tmux...${NORMAL}\n"
-	if [[ $OSTYPE == 'darwin'* ]]; then
-        tmux source ./macos/.tmux.conf
-    else
-        tmux source ./linux/.tmux.conf
-    fi
+	tmux source-file ~/.tmux.conf
 	printf "${GREEN}Sourcing tmux complete${NORMAL}\n"
 }
 
@@ -80,6 +89,8 @@ setup_vim_plugin() {
 		git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 	fi
 	vim +PluginInstall +qall
+	# No need to run `source ~/.vimrc` from terminal, vim will automatically load the configuration
+	# If you're inside vim, to reload the config do this - Press Esc, then type ':source ~/.vimrc'
 	printf "${GREEN}Vim plugin setup complete${NORMAL}\n"
 }
 
