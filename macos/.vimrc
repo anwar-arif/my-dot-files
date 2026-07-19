@@ -15,6 +15,7 @@ Plugin 'itchyny/lightline.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'joshdick/onedark.vim'
+Plugin 'doums/darcula'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -33,14 +34,17 @@ set laststatus=2
 """" Vim Appearance
 
 
-"colorscheme onedark 
+"colorscheme onedark
+colorscheme darcula
+set termguicolors
+
 "autocmd vimenter * NERDTree
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
 
 
 let g:lightline = {
-      \ 'colorscheme': 'onedark',
+      \ 'colorscheme': 'darcula',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
