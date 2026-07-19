@@ -163,6 +163,9 @@ install_cask_pkg() {
         "visual-studio-code"
         "vlc"
         "clipy"
+        "codex"
+        "claude-code"
+        "antigravity-cli"
     )
     for pkg in ${packages[@]}; do
         if brew list $pkg &>/dev/null; then
